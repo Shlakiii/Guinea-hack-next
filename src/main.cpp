@@ -1,18 +1,29 @@
 #include <Arduino.h>
+#include <core/ui_el/mainmenu/main_menu.h>
+#include <core/ui_el/wifi/wifi_menu.h>
 
-// put function declarations here:
-int myFunction(int, int);
+LGFX display;
+
+namespace {
+bool wifi_menu_active = false;
+}
 
 void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+  display.init();
+  main_menu_init(display);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-}
+  if (wifi_menu_active) {
+    if (wifi_menu_update(display) == WifiMenuEvent::Back) {
+      wifi_menu_active = false;
+      main_menu_init(display);
+    }
+    return;
+  }
 
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
+  if (main_menu_update(display) == MainMenuEvent::OpenWifi) {
+    wifi_menu_active = true;
+    wifi_menu_init(display);
+  }
 }

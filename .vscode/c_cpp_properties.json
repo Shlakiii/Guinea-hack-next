@@ -10,6 +10,9 @@
             "includePath": [
                 "/home/makar/Документы/PlatformIO/Projects/Guinea_hack_next/include",
                 "/home/makar/Документы/PlatformIO/Projects/Guinea_hack_next/src",
+                "/home/makar/Документы/PlatformIO/Projects/Guinea_hack_next/.pio/libdeps/esp32-s3-devkitc1-n16r8/LovyanGFX/src",
+                "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/Wire/src",
+                "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/SPI/src",
                 "/home/makar/.platformio/packages/framework-arduinoespressif32-libs/esp32s3/include/newlib/platform_include",
                 "/home/makar/.platformio/packages/framework-arduinoespressif32-libs/esp32s3/include/freertos/config/include",
                 "/home/makar/.platformio/packages/framework-arduinoespressif32-libs/esp32s3/include/freertos/config/include/freertos",
@@ -387,7 +390,6 @@
                 "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/RainMaker/src",
                 "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/SD/src",
                 "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/SD_MMC/src",
-                "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/SPI/src",
                 "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/SPIFFS/src",
                 "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/SimpleBLE/src",
                 "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/Ticker/src",
@@ -396,7 +398,6 @@
                 "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/WebServer/src",
                 "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src",
                 "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/WiFiProv/src",
-                "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/Wire/src",
                 "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/Zigbee/src",
                 ""
             ],
@@ -405,6 +406,9 @@
                 "path": [
                     "/home/makar/Документы/PlatformIO/Projects/Guinea_hack_next/include",
                     "/home/makar/Документы/PlatformIO/Projects/Guinea_hack_next/src",
+                    "/home/makar/Документы/PlatformIO/Projects/Guinea_hack_next/.pio/libdeps/esp32-s3-devkitc1-n16r8/LovyanGFX/src",
+                    "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/Wire/src",
+                    "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/SPI/src",
                     "/home/makar/.platformio/packages/framework-arduinoespressif32-libs/esp32s3/include/newlib/platform_include",
                     "/home/makar/.platformio/packages/framework-arduinoespressif32-libs/esp32s3/include/freertos/config/include",
                     "/home/makar/.platformio/packages/framework-arduinoespressif32-libs/esp32s3/include/freertos/config/include/freertos",
@@ -782,7 +786,6 @@
                     "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/RainMaker/src",
                     "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/SD/src",
                     "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/SD_MMC/src",
-                    "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/SPI/src",
                     "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/SPIFFS/src",
                     "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/SimpleBLE/src",
                     "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/Ticker/src",
@@ -791,7 +794,6 @@
                     "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/WebServer/src",
                     "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src",
                     "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/WiFiProv/src",
-                    "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/Wire/src",
                     "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/Zigbee/src",
                     ""
                 ]
