@@ -1,33 +1,18 @@
 #include <Arduino.h>
 #include <WiFi.h>
-#include <core/config/buttons.h>
+#include <core/input/button_input.h>
 #include <core/ui/uimain.h>
 #include <core/ui_el/wifi/wifi_menu.h>
 #include <core/types/graphics.h>
 #include <core/assets/icons/mainMenuIcons.h>
 
 namespace {
-constexpr uint32_t debounce_ms = 35;
 constexpr int16_t scan_row_y = 24;
 constexpr int16_t scan_row_height = 30;
 constexpr int16_t results_y = 28;
 constexpr int16_t result_row_height = 41;
 constexpr int16_t visible_networks =
     (320 - results_y) / result_row_height;
-
-struct ButtonState {
-    uint8_t pin;
-    bool raw_pressed;
-    bool stable_pressed;
-    uint32_t changed_at;
-};
-
-ButtonState buttons[] = {
-    {BTN_UP, false, false, 0},
-    {BTN_DOWN, false, false, 0},
-    {BTN_SELECT, false, false, 0},
-    {BTN_BACK, false, false, 0}
-};
 
 enum class ScanState : uint8_t {
     Idle,
@@ -46,21 +31,6 @@ WifiView current_view = WifiView::Scan;
 int16_t network_count = 0;
 int16_t selected_item = 0;
 int16_t selected_scan_action = 0;
-
-bool wasPressed(ButtonState& button, uint32_t now) {
-    const bool pressed = digitalRead(button.pin) == LOW;
-    if (pressed != button.raw_pressed) {
-        button.raw_pressed = pressed;
-        button.changed_at = now;
-    }
-
-    if (button.stable_pressed != button.raw_pressed &&
-        now - button.changed_at >= debounce_ms) {
-        button.stable_pressed = button.raw_pressed;
-        return button.stable_pressed;
-    }
-    return false;
-}
 
 const char* security_name(wifi_auth_mode_t security) {
     switch (security) {
@@ -214,12 +184,6 @@ void start_scan() {
 }
 
 void wifi_menu_init(LGFX& display) {
-    for (ButtonState& button : buttons) {
-        pinMode(button.pin, INPUT_PULLUP);
-        button.raw_pressed = digitalRead(button.pin) == LOW;
-        button.stable_pressed = button.raw_pressed;
-        button.changed_at = millis();
-    }
     const int16_t scan_result = WiFi.scanComplete();
     if (scan_result == WIFI_SCAN_RUNNING) {
         scan_state = ScanState::Scanning;
@@ -240,14 +204,8 @@ void wifi_menu_init(LGFX& display) {
     draw_current_view(display);
 }
 
-WifiMenuEvent wifi_menu_update(LGFX& display) {
-    const uint32_t now = millis();
-    const bool up = wasPressed(buttons[0], now);
-    const bool down = wasPressed(buttons[1], now);
-    const bool select = wasPressed(buttons[2], now);
-    const bool back = wasPressed(buttons[3], now);
-
-    if (back) {
+WifiMenuEvent wifi_menu_update(LGFX& display, const ButtonEvents& input) {
+    if (input.back) {
         if (current_view == WifiView::Results) {
             current_view = WifiView::Scan;
             draw_current_view(display);
@@ -274,30 +232,30 @@ WifiMenuEvent wifi_menu_update(LGFX& display) {
 
     bool changed = false;
     if (current_view == WifiView::Results && network_count > 0) {
-        if (up) {
+        if (input.up) {
             selected_item =
                 (selected_item + network_count - 1) % network_count;
             changed = true;
-        } else if (down) {
+        } else if (input.down) {
             selected_item = (selected_item + 1) % network_count;
             changed = true;
         }
     } else if (current_view == WifiView::Scan) {
         const int16_t action_count =
             scan_state == ScanState::Complete ? 2 : 1;
-        if (up && action_count > 1) {
+        if (input.up && action_count > 1) {
             selected_scan_action =
                 (selected_scan_action + action_count - 1) % action_count;
             changed = true;
-        } else if (down && action_count > 1) {
+        } else if (input.down && action_count > 1) {
             selected_scan_action = (selected_scan_action + 1) % action_count;
             changed = true;
         }
 
-        if (select && selected_scan_action == 0) {
+        if (input.select && selected_scan_action == 0) {
             start_scan();
             changed = true;
-        } else if (select && selected_scan_action == 1 &&
+        } else if (input.select && selected_scan_action == 1 &&
                    scan_state == ScanState::Complete) {
             current_view = WifiView::Results;
             selected_item = 0;

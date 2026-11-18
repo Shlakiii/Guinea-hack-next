@@ -3,7 +3,7 @@
 
 #include <Arduino.h>
 #include <core/config/display.h>
-#include <core/config/buttons.h>
+#include <core/input/button_input.h>
 #include <core/types/graphics.h>
 #include <core/assets/icons/mainMenuIcons.h>
 
@@ -47,6 +47,6 @@ enum class MainMenuEvent : uint8_t {
 };
 
 void main_menu_init(LGFX& display);
-MainMenuEvent main_menu_update(LGFX& display);
+MainMenuEvent main_menu_update(LGFX& display, const ButtonEvents& input);
 
 #endif
