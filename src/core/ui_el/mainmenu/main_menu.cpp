@@ -1,6 +1,7 @@
 #include <core/ui_el/mainmenu/main_menu.h>
 #include <core/ui/uimain.h>
 #include <esp32-hal-rgb-led.h>
+#include <core/output/buzzer.h>
 
 namespace {
 constexpr uint8_t menu_item_count = sizeof(btns) / sizeof(btns[0]);
@@ -36,6 +37,8 @@ void draw_flashlight_screen(LGFX& display) {
     display.setTextSize(1);
     display.setCursor(76, 162);
     display.print("BACK to return");
+
+    beep(3);
 }
 }
 
@@ -60,9 +63,11 @@ MainMenuEvent main_menu_update(LGFX& display, const ButtonEvents& input) {
     if (input.up) {
         selected_item = (selected_item + menu_item_count - 1) % menu_item_count;
         selection_changed = true;
+        beep(1);
     } else if (input.down) {
         selected_item = (selected_item + 1) % menu_item_count;
         selection_changed = true;
+        beep(1);
     }
 
     if (selection_changed) {

@@ -10,6 +10,8 @@
             "includePath": [
                 "/home/makar/Документы/PlatformIO/Projects/Guinea_hack_next/include",
                 "/home/makar/Документы/PlatformIO/Projects/Guinea_hack_next/src",
+                "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src",
+                "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/Network/src",
                 "/home/makar/Документы/PlatformIO/Projects/Guinea_hack_next/.pio/libdeps/esp32-s3-devkitc1-n16r8/LovyanGFX/src",
                 "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/Wire/src",
                 "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/SPI/src",
@@ -382,7 +384,6 @@
                 "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/LittleFS/src",
                 "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/Matter/src",
                 "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/NetBIOS/src",
-                "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/Network/src",
                 "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/NetworkClientSecure/src",
                 "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/OpenThread/src",
                 "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/PPP/src",
@@ -396,7 +397,6 @@
                 "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/USB/src",
                 "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/Update/src",
                 "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/WebServer/src",
-                "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src",
                 "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/WiFiProv/src",
                 "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/Zigbee/src",
                 ""
@@ -406,6 +406,8 @@
                 "path": [
                     "/home/makar/Документы/PlatformIO/Projects/Guinea_hack_next/include",
                     "/home/makar/Документы/PlatformIO/Projects/Guinea_hack_next/src",
+                    "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src",
+                    "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/Network/src",
                     "/home/makar/Документы/PlatformIO/Projects/Guinea_hack_next/.pio/libdeps/esp32-s3-devkitc1-n16r8/LovyanGFX/src",
                     "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/Wire/src",
                     "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/SPI/src",
@@ -778,7 +780,6 @@
                     "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/LittleFS/src",
                     "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/Matter/src",
                     "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/NetBIOS/src",
-                    "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/Network/src",
                     "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/NetworkClientSecure/src",
                     "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/OpenThread/src",
                     "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/PPP/src",
@@ -792,7 +793,6 @@
                     "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/USB/src",
                     "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/Update/src",
                     "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/WebServer/src",
-                    "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src",
                     "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/WiFiProv/src",
                     "/home/makar/.platformio/packages/framework-arduinoespressif32/libraries/Zigbee/src",
                     ""

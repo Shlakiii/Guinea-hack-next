@@ -5,6 +5,7 @@
 #include <core/ui_el/wifi/wifi_menu.h>
 #include <core/types/graphics.h>
 #include <core/assets/icons/mainMenuIcons.h>
+#include <core/output/buzzer.h>
 
 namespace {
 constexpr int16_t scan_row_y = 24;
@@ -124,10 +125,14 @@ void draw_scan_menu(LGFX& display) {
             display.print("Scanning...");
             break;
         case ScanState::Complete:
+            beep(1);
+            delay(3);
             display.printf("Found networks: %d", network_count);
             break;
         case ScanState::Failed:
-            display.print("Scan failed");
+            beep(2);
+            delay(4);
+            display.print("Scan failed. Try again.");
             break;
     }
 }
@@ -137,7 +142,7 @@ void draw_results_menu(LGFX& display) {
     display.setTextColor(TFT_WHITE, TFT_BLACK);
     display.setTextSize(1);
     display.setCursor(6, 8);
-    display.printf("WiFi results: %d  BACK: menu", network_count);
+    display.printf("WiFi results: %d  BACK: menu SELECT: act", network_count);
 
     if (network_count == 0) {
         display.setCursor(6, 36);
@@ -162,6 +167,8 @@ void draw_results_menu(LGFX& display) {
             selected_item == network_index
         );
     }
+
+    beep(2);
 }
 
 void draw_current_view(LGFX& display) {
@@ -180,6 +187,8 @@ void start_scan() {
     network_count = 0;
     selected_item = 0;
     current_view = WifiView::Scan;
+
+    beep(2);
 }
 }
 
